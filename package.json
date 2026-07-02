@@ -4,10 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
-    "build": "vite build",
+    "dev": "node scripts/generate-czml-manifest.js && vite --host 0.0.0.0",
+    "build": "node scripts/generate-czml-manifest.js && vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "postinstall": "node scripts/copy-cesium-assets.js"
+    "postinstall": "node scripts/copy-cesium-assets.js",
+    "generate-czml-manifest": "node scripts/generate-czml-manifest.js"
   },
   "dependencies": {
     "cesium": "1.134.0"

@@ -35,8 +35,27 @@ async function loadCzml(czmlPath) {
   viewer.clock.shouldAnimate = true;
 }
 
+async function loadCzmlOptions() {
+  const response = await fetch("/czml/manifest.json");
+  if (!response.ok) {
+    throw new Error("Failed to load CZML manifest");
+  }
+
+  const czmlFiles = await response.json();
+  for (const czmlFile of czmlFiles) {
+    const option = document.createElement("option");
+    option.value = czmlFile.path;
+    option.textContent = czmlFile.name;
+    czmlSelect.appendChild(option);
+  }
+
+  if (czmlFiles.length > 0) {
+    await loadCzml(czmlSelect.value);
+  }
+}
+
 czmlSelect.addEventListener("change", () => {
   loadCzml(czmlSelect.value);
 });
 
-loadCzml(czmlSelect.value);
+loadCzmlOptions();

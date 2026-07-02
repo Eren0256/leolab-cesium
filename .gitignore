@@ -12,5 +12,6 @@ pnpm-debug.log*
 .env.*
 
 public/cesium/
+public/czml/manifest.json
 public/czml/*.czml
 !public/czml/demo_starlink_p1s1_all.czml

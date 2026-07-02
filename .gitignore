@@ -1,0 +1,16 @@
+.DS_Store
+
+node_modules/
+dist/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+.env
+.env.*
+
+public/cesium/
+public/czml/*.czml
+!public/czml/demo_starlink_p1s1_all.czml
